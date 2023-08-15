@@ -1,0 +1,39 @@
+﻿<Window x:Class="PairsGame.View.StatisticsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:PairsGame.ViewModel"
+        Title="Statistics" Height="400" Width="600">
+    <Window.DataContext>
+        <vm:StatisticsViewModel/>
+    </Window.DataContext>
+    <Grid Background="#2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Statistics:" Grid.Row="0" Margin="10" Foreground="White" FontFamily="Whitney" FontWeight="bold" FontSize="16"/>
+        <ListView ItemsSource="{Binding Users}" Margin="10,49,10,10" Grid.RowSpan="2">
+            <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                    <Setter Property="Background" Value="#7289DA"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </ListView.Resources>
+            <ListView.Background>
+                <SolidColorBrush Color="#36393F"/>
+            </ListView.Background>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Username"  DisplayMemberBinding="{Binding username}" Width="120" />
+                    <GridViewColumn Header="Games Played" DisplayMemberBinding="{Binding gamesPlayed}" Width="100"/>
+                    <GridViewColumn Header="Games Won" DisplayMemberBinding="{Binding gamesWon}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

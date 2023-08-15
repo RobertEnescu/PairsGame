@@ -1,0 +1,24 @@
+﻿<Window x:Class="PairsGame.View.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PairsGame.View" xmlns:viewmodel="clr-namespace:PairsGame.ViewModel"
+        mc:Ignorable="d"
+        Title="AboutWindow" Height="110" Width="360">
+    <Window.DataContext>
+        <viewmodel:AboutViewModel/>
+    </Window.DataContext>
+    <Grid Background="#2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="Project made by: Enescu Robert-Antonio" Foreground="White" FontFamily="Whitney" FontWeight="bold" FontSize="16"/>
+            <TextBlock Text="Group: 10LF211" Foreground="White" FontFamily="Whitney" FontWeight="bold" FontSize="16"/>
+            <TextBlock Text="Specialization: Informatics" Foreground="White" FontFamily="Whitney" FontWeight="bold" FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</Window>

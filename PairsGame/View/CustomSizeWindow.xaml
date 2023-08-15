@@ -1,0 +1,32 @@
+﻿<Window x:Class="PairsGame.View.CustomSizeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:PairsGame.ViewModel"
+        mc:Ignorable="d"
+        Title="CustomSizeWindow" Height="90" Width="354">
+    <Window.DataContext>
+        <viewmodel:CustomSizeViewModel />
+    </Window.DataContext>
+
+    <Grid Background="#2C2F33">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Custom (Max 40 cards)" Foreground="White" FontFamily="Whitney" FontWeight="bold" FontSize="16"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="Rows:" Margin="5" Foreground="White" FontFamily="Whitney" FontSize="16"/>
+            <TextBox Text="{Binding Rows,Mode=TwoWay}" Width="50" Margin="5" TextChanged="TextBox_TextChanged" />
+            <TextBlock Text="Columns:" Margin="5" Foreground="White" FontFamily="Whitney" FontSize="16"/>
+            <TextBox Text="{Binding Cols,Mode=TwoWay}" Width="50" Margin="5" />
+            <Button Content="OK" Margin="5" Command="{Binding OKCommand}" Background="#7289DA" Foreground="White" FontFamily="Whitney" FontSize="16" />
+            <Button Content="Cancel" Margin="5" Click="OnClickCancel" Background="#7289DA" Foreground="White" FontFamily="Whitney" FontSize="16"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

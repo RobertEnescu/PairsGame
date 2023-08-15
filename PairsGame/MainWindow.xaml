@@ -1,0 +1,27 @@
+﻿<Window x:Class="PairsGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:PairsGame.ViewModel"
+        xmlns:model="clr-namespace:PairsGame.Model"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="580" Width="1000">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+    <Grid Background="#2C2F33">
+        <Image Name="Picture" Source="{Binding SelectedUser.image}" Margin="409,93,69,221" Height="250" RenderTransformOrigin="0.504,0.495"></Image>
+        <ListBox x:Name="list" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}"  Height="300" Width="244" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,68,0,0" SelectedIndex="{Binding SelectedName}" Background="#36393F" BorderThickness="2" BorderBrush="#7289DA" Foreground="White" FontFamily="Whitney" FontSize="16">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl Content="{Binding username}"></ContentControl>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Width="100" Height="50" Content="New User" Margin="370,420,430,64" Command="{Binding Path=NewCommand}" Background="#7289DA" Foreground="White" FontFamily="Whitney" FontSize="16" RenderTransformOrigin="0.727,0.467"></Button>
+        <Button Width="100" Height="50" Content="Delete User" Margin="520,420,280,64" IsEnabled="{Binding EnableButton}" Command="{Binding Path=DeleteCommand}" Background="#7289DA" Foreground="White" FontFamily="Whitney" FontSize="16" RenderTransformOrigin="1.063,0.588"></Button>
+        <Button Width="100" Height="50" Content="Play" Margin="657,420,143,64" IsEnabled="{Binding EnableButton}" Command="{Binding Path=PlayCommand}" Background="#7289DA" Foreground="White" FontFamily="Whitney" FontSize="16" RenderTransformOrigin="1.203,0.618"></Button>
+        <Button Width="100" Height="50" Content="Cancel" Margin="790,420,10,64" Click="OnClickCancel" Background="#7289DA" Foreground="White" FontFamily="Whitney" FontSize="16"></Button>
+    </Grid>
+</Window>
